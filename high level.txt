@@ -1,0 +1,57 @@
+For Mission 2, there are 2 ideas I got.
+
+    - Update my CV website (I think it's trash so might just change it and finish it in my own time)
+    - Create a character creator for 5e dnd; I can use Javascript for the calculations and printing the page
+
+
+I'm going with the second one; I'll work on the first one another time.
+
+We'll go barebones for this; just the front page with stats
+
+Okay, let's get started with the numbers
+
+Base Numbers:
+    Stats ~ STR DEX CON INT WIS CHA
+    Level
+    Weight
+    HP
+
+
+Calculated Numbers:
+    Stat Modifiers: (Stat - 10)/2 rounded down (can be positive or negative)
+        e.g. STR = 19 so STR Mod = (19 - 10)/2 = 4.5 = +4
+        OR CHA = 5 so CHA Mod = (5 - 10)/2 = -2.5 = -3
+    
+    Proficiency: Switch cases (Proficiency doesn't scale linearly with level (generally))
+        1 - 4 = +2
+        5 - 8 = +3
+        9 - 12 = +4
+        13 - 16 = +5
+        17 - 20 = +6
+
+        Hopefully Switch cases can take inequalities, otherwise I'll have 20 switch cases
+    
+    AC: 10 + DEX Mod + Shield Bonus
+        Optional: give an option to change what you put here in AC
+    
+    Saving Throws: Stat Mod + Proficiency
+
+    Skills: Stat Mod + Proficiency
+        Optional: Expertise(Proficiency bonus doubled) and Jack of All Trades(not proficient = + Proficiency/2)
+    
+    Passive Perception: Perception Skill + 10
+
+    Tool Proficiencies: Relevant Stat Mod + Proficiency
+
+    To hit Bonuses: Proficiency + Relevant Stat Mod
+
+    Damage Bonuses: Proficiency + Relevant Stat Mod
+    
+Other things:
+    Text boxes to hold Class Feats
+    Equipment
+    Personality Traits
+    Ideals
+    Bonds
+    Flaws
+
