@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,189 @@
     <title>Document</title>
     <script src="calculations.js"></script>
 </head>
+
 <body>
-    
+    <form>
+        <!-- Level; used to calculate proficiency for skill levels -->
+
+        <h3>Stats</h3>
+
+        <label for="level">Level:</label>
+        <input type="number" id="level" name="level"><br>
+
+        <!-- Basic Stat Scores; used for calculating -->
+
+        <label for="strength">Strength:</label>
+        <input type="number" id="strength" name="strength"><br>
+
+        <label for="dexterity">Dexterity:</label>
+        <input type="number" id="dexterity" name="dexterity"><br>
+
+        <label for="constitution">Constitution:</label>
+        <input type="number" id="constitution" name="constitution"><br>
+
+        <label for="intelligence">Intelligence:</label>
+        <input type="number" id="intelligence" name="intelligence"><br>
+
+        <label for="wisdom">Wisdom:</label>
+        <input type="number" id="wisdom" name="wisdom"><br>
+
+        <label for="charisma">Charisma:</label>
+        <input type="number" id="charisma" name="charisma"><br>
+
+        <!-- Calculated Stats -->
+
+        <h3>Saving Throws</h3>
+
+        <label for="strSavThrow">STR Saving Throw:</label>
+        <input type="number" id="strSavThrow" name="strSavThrow">
+        <label for="strSavThrowProf">Proficient?</label>
+        <input type="checkbox" id="strSavThrowProf" name="strSavThrowProf">
+        <br>
+
+        <label for="dexSavThrow">DEX Saving Throw:</label>
+        <input type="number" id="dexSavThrow" name="dexSavThrow">
+        <label for="dexSavThrowProf">Proficient?</label>
+        <input type="checkbox" id="dexSavThrowProf" name="dexSavThrowProf">
+        <br>
+
+        <label for="conSavThrow">CON Saving Throw:</label>
+        <input type="number" id="conSavThrow" name="conSavThrow">
+        <label for="conSavThrowProf">Proficient?</label>
+        <input type="checkbox" id="conSavThrowProf" name="conSavThrowProf">
+        <br>
+
+        <label for="intSavThrow">INT Saving Throw:</label>
+        <input type="number" id="intSavThrow" name="intSavThrow">
+        <label for="intSavThrowProf">Proficient?</label>
+        <input type="checkbox" id="intSavThrowProf" name="intSavThrowProf">
+        <br>
+
+        <label for="wisSavThrow">WIS Saving Throw:</label>
+        <input type="number" id="wisSavThrow" name="wisSavThrow">
+        <label for="wisSavThrowProf">Proficient?</label>
+        <input type="checkbox" id="wisSavThrowProf" name="wisSavThrowProf">
+        <br>
+
+        <label for="chaSavThrow">CHA Saving Throw:</label>
+        <input type="number" id="chaSavThrow" name="chaSavThrow">
+        <label for="chaSavThrowProf">Proficient?</label>
+        <input type="checkbox" id="chaSavThrowProf" name="chaSavThrowProf">
+        <br>
+
+        <h3>Skills</h3>
+
+        <label for="acrobatics">Acrobatics (DEX):</label>
+        <input type="number" id="acrobatics" name="acrobatics">
+        <label for="acrobaticsProf">Proficient?</label>
+        <input type="checkbox" id="acrobaticsProf" name="acrobaticsProf">
+        <br>
+
+        <label for="animalHandling">Animal Handling (WIS):</label>
+        <input type="number" id="animalHandling" name="animalHandling">
+        <label for="animalHandlingProf">Proficient?</label>
+        <input type="checkbox" id="animalHandlingProf" name="animalHandlingProf">
+        <br>
+
+        <label for="arcana">Arcana (INT):</label>
+        <input type="number" id="arcana" name="arcana">
+        <label for="arcanaProf">Proficient?</label>
+        <input type="checkbox" id="arcanaProf" name="arcanaProf">
+        <br>
+
+        <label for="athletics">Athletics (STR):</label>
+        <input type="number" id="athletics" name="athletics">
+        <label for="athleticsProf">Proficient?</label>
+        <input type="checkbox" id="athleticsProf" name="athleticsProf">
+        <br>
+
+        <label for="deception">Deception (CHA):</label>
+        <input type="number" id="deception" name="deception">
+        <label for="deceptionProf">Proficient?</label>
+        <input type="checkbox" id="deceptionProf" name="deceptionProf">
+        <br>
+
+        <label for="history">History (INT):</label>
+        <input type="number" id="history" name="history">
+        <label for="historyProf">Proficient?</label>
+        <input type="checkbox" id="historyProf" name="historyProf">
+        <br>
+
+        <label for="insight">Insight (WIS):</label>
+        <input type="number" id="insight" name="insight">
+        <label for="insightProf">Proficient?</label>
+        <input type="checkbox" id="insightProf" name="insightProf">
+        <br>
+
+        <label for="intimidation">Intimidation (CHA):</label>
+        <input type="number" id="intimidation" name="intimidation">
+        <label for="intimidationProf">Proficient?</label>
+        <input type="checkbox" id="intimidationProf" name="intimidationProf">
+        <br>
+
+        <label for="investigation">Investigation (INT):</label>
+        <input type="number" id="investigation" name="investigation">
+        <label for="investigationProf">Proficient?</label>
+        <input type="checkbox" id="investigationProf" name="investigationProf">
+        <br>
+
+        <label for="medicine">Medicine (WIS):</label>
+        <input type="number" id="medicine" name="medicine">
+        <label for="medicineProf">Proficient?</label>
+        <input type="checkbox" id="medicineProf" name="medicineProf">
+        <br>
+
+        <label for="nature">Nature (Int):</label>
+        <input type="number" id="nature" name="nature">
+        <label for="natureProf">Proficient?</label>
+        <input type="checkbox" id="natureProf" name="natureProf">
+        <br>
+
+        <label for="perception">Perception (WIS):</label>
+        <input type="number" id="perception" name="perception">
+        <label for="perceptionProf">Proficient?</label>
+        <input type="checkbox" id="perceptionProf" name="perceptionProf">
+        <br>
+
+        <label for="performance">Performance (CHA):</label>
+        <input type="number" id="performance" name="performance">
+        <label for="performanceProf">Proficient?</label>
+        <input type="checkbox" id="performanceProf" name="performanceProf">
+        <br>
+
+        <label for="persuasion">Persuasion (CHA):</label>
+        <input type="number" id="persuasion" name="persuasion">
+        <label for="persuasionProf">Proficient?</label>
+        <input type="checkbox" id="persuasionProf" name="persuasionProf">
+        <br>
+
+        <label for="religion">Religion (INT):</label>
+        <input type="number" id="religion" name="religion">
+        <label for="religionProf">Proficient?</label>
+        <input type="checkbox" id="religionProf" name="religionProf">
+        <br>
+
+        <label for="sleightOfHand">Sleight of Hand (DEX):</label>
+        <input type="number" id="sleightOfHand" name="sleightOfHand">
+        <label for="sleightOfHandProf">Proficient?</label>
+        <input type="checkbox" id="sleightOfHandProf" name="sleightOfHandProf">
+        <br>
+
+        <label for="stealth">Stealth (DEX):</label>
+        <input type="number" id="stealth" name="stealth">
+        <label for="stealthProf">Proficient?</label>
+        <input type="checkbox" id="stealthProf" name="stealthProf">
+        <br>
+
+        <label for="survival">Survival (WIS):</label>
+        <input type="number" id="survival" name="survival">
+        <label for="survivalProf">Proficient?</label>
+        <input type="checkbox" id="survivalProf" name="survivalProf">
+        <br>
+
+        <button onclick="updateStats()">Update Stats</button>
+
+    </form>
 </body>
+
 </html>
