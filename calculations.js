@@ -43,6 +43,36 @@ const calculateSkillProf = function (statScore, proficiency, profBool = 0, perce
     }
 }
 
+//these functions are for calculating stats
+
+const calculateMods = function (strength, dexterity, constitution, intelligence, wisdom, charisma) {
+    calculateStatMod(strength);
+    calculateStatMod(dexterity);
+    calculateStatMod(constitution);
+    calculateStatMod(intelligence);
+    calculateStatMod(wisdom);
+    calculateStatMod(charisma);
+}
+
+const calculateSavingThrows = function (strmod, dexmod, conmod, intmod, wismod, chamod) {
+    calculateSkillProf(strmod,prof,strSavThrowProf);
+    calculateSkillProf(dexmod,prof,dexSavThrowProf);
+    calculateSkillProf(conmod,prof,conSavThrowProf);
+    calculateSkillProf(intmod,prof,intSavThrowProf);
+    calculateSkillProf(wismod,prof,wisSavThrowProf);
+    calculateSkillProf(chamod,prof,chaSavThrowProf);
+}
+
+const calculateSkillProfs = function (trmod, dexmod, conmod, intmod, wismod, chamod) {
+
+}
+
+// This function updates the calculated stats on the webpage
+
+const updateStats = function () {
+
+}
+
 // --- Testing ---
 
 // const strength = 14;
