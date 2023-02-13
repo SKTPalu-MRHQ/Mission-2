@@ -121,12 +121,12 @@ let intmod = 0;
 let wismod = 0;
 let chamod = 0;
 
-console.log(`Strength Mod: ${strmod}`);
-console.log(`Dexterity Mod: ${dexmod}`);
-console.log(`Constitution Mod: ${conmod}`);
-console.log(`Intelligence Mod: ${intmod}`);
-console.log(`Wisdom Mod: ${wismod}`);
-console.log(`Charisma Mod: ${chamod}`);
+// console.log(`Strength Mod: ${strmod}`);
+// console.log(`Dexterity Mod: ${dexmod}`);
+// console.log(`Constitution Mod: ${conmod}`);
+// console.log(`Intelligence Mod: ${intmod}`);
+// console.log(`Wisdom Mod: ${wismod}`);
+// console.log(`Charisma Mod: ${chamod}`);
 
 let modArray = calculateMods(strength,dexterity,constitution,intelligence,wisdom,charisma);
 
@@ -137,17 +137,70 @@ intmod = modArray[3];
 wismod = modArray[4];
 chamod = modArray[5];
 
-console.log(`Strength Mod: ${strmod}`);
-console.log(`Dexterity Mod: ${dexmod}`);
-console.log(`Constitution Mod: ${conmod}`);
-console.log(`Intelligence Mod: ${intmod}`);
-console.log(`Wisdom Mod: ${wismod}`);
-console.log(`Charisma Mod: ${chamod}`);
+// console.log(`Strength Mod: ${strmod}`);
+// console.log(`Dexterity Mod: ${dexmod}`);
+// console.log(`Constitution Mod: ${conmod}`);
+// console.log(`Intelligence Mod: ${intmod}`);
+// console.log(`Wisdom Mod: ${wismod}`);
+// console.log(`Charisma Mod: ${chamod}`);
+
+// Saving Throws
+
+let strSavThrow = 0;
+let dexSavThrow = 0;
+let conSavThrow = 0;
+let intSavThrow = 0;
+let wisSavThrow = 0;
+let chaSavThrow = 0;
+
+// console.log(`Strength Saving Throw: ${strSavThrow}`);
+// console.log(`Dexterity Saving Throw: ${dexSavThrow}`);
+// console.log(`Constitution Saving Throw: ${conSavThrow}`);
+// console.log(`Intelligence Saving Throw: ${intSavThrow}`);
+// console.log(`Wisdom Saving Throw: ${wisSavThrow}`);
+// console.log(`Charisma Saving Throw: ${chaSavThrow}`);
 
 let savThrowArray = calculateSavingThrows(strmod,dexmod,conmod,intmod,wismod,chamod, prof, 1, 0, 0, 1, 1, 1);
 
+strSavThrow = savThrowArray[0];
+dexSavThrow = savThrowArray[1];
+conSavThrow = savThrowArray[2];
+intSavThrow = savThrowArray[3];
+wisSavThrow = savThrowArray[4];
+chaSavThrow = savThrowArray[5];
+
+// console.log(`Strength Saving Throw: ${strSavThrow}`);
+// console.log(`Dexterity Saving Throw: ${dexSavThrow}`);
+// console.log(`Constitution Saving Throw: ${conSavThrow}`);
+// console.log(`Intelligence Saving Throw: ${intSavThrow}`);
+// console.log(`Wisdom Saving Throw: ${wisSavThrow}`);
+// console.log(`Charisma Saving Throw: ${chaSavThrow}`);
+
+// Skill Proficiencies
+
+let acrobatics = 0;
+let animalHandling = 0;
+let arcana = 0;
+let athletics = 0;
+let deception = 0;
+let history = 0;
+let insight = 0;
+let intimidation = 0;
+let investigation = 0;
+let medicine = 0;
+let nature = 0;
+let perception = 0;
+let performance = 0;
+let persuasion = 0;
+let religion = 0;
+let sleightOfHand = 0;
+let stealth = 0;
+let survival = 0;
+
 console.log(modArray);
 console.log(savThrowArray);
+
+// Testing small functions
 
 // const strmod = calculateStatMod(strength);
 // const dexmod = calculateStatMod(dexterity);
