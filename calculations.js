@@ -86,23 +86,68 @@ const calculateSkillsProfs = function (strmod, dexmod, intmod, wismod, chamod, p
     const survival = calculateSkillProf(wismod,prof,survivalProf);
 
     const passivePerception = calculateSkillProf(wismod,prof,perceptionProf,10);
+
+    return [acrobatics, animalHandling, arcana, athletics, deception, history, insight, intimidation, investigation, medicine, nature, perception, performance, persuasion, religion, sleightOfHand, stealth, survival, passivePerception];
 }
 
 // This function updates the calculated stats on the webpage
 
 const updateStats = function () {
-
+    // each of the calculating functions will be called; they will return arrays. Then the values of the arrays will be divided into the different values. These will be declared at the beginning, as they will be passed to the html page
 }
 
 // --- Testing ---
 
-// const strength = 14;
-// const dexterity = 6;
-// const constitution = 10;
-// const wisdom = 15;
-// const intelligence = 3;
-// const charisma = 9;
-// const level = 10;
+//entered stats
+
+let strength = 14;
+let dexterity = 6;
+let constitution = 10;
+let wisdom = 15;
+let intelligence = 3;
+let charisma = 9;
+let level = 10;
+
+// -- calculated stats --
+
+let prof = proficiency(level);
+
+//stat mods
+
+let strmod = 0;
+let dexmod = 0;
+let conmod = 0;
+let intmod = 0;
+let wismod = 0;
+let chamod = 0;
+
+console.log(`Strength Mod: ${strmod}`);
+console.log(`Dexterity Mod: ${dexmod}`);
+console.log(`Constitution Mod: ${conmod}`);
+console.log(`Intelligence Mod: ${intmod}`);
+console.log(`Wisdom Mod: ${wismod}`);
+console.log(`Charisma Mod: ${chamod}`);
+
+let modArray = calculateMods(strength,dexterity,constitution,intelligence,wisdom,charisma);
+
+strmod = modArray[0];
+dexmod = modArray[1];
+conmod = modArray[2];
+intmod = modArray[3];
+wismod = modArray[4];
+chamod = modArray[5];
+
+console.log(`Strength Mod: ${strmod}`);
+console.log(`Dexterity Mod: ${dexmod}`);
+console.log(`Constitution Mod: ${conmod}`);
+console.log(`Intelligence Mod: ${intmod}`);
+console.log(`Wisdom Mod: ${wismod}`);
+console.log(`Charisma Mod: ${chamod}`);
+
+let savThrowArray = calculateSavingThrows(strmod,dexmod,conmod,intmod,wismod,chamod, prof, 1, 0, 0, 1, 1, 1);
+
+console.log(modArray);
+console.log(savThrowArray);
 
 // const strmod = calculateStatMod(strength);
 // const dexmod = calculateStatMod(dexterity);
@@ -110,8 +155,6 @@ const updateStats = function () {
 // const intmod = calculateStatMod(intelligence);
 // const wismod = calculateStatMod(wisdom);
 // const chamod = calculateStatMod(charisma);
-
-// const prof = proficiency(level);
 
 // // console.log(calculateStatMod(strength));
 // // console.log(calculateStatMod(dexterity));
