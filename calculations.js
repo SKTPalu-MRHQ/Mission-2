@@ -46,25 +46,46 @@ const calculateSkillProf = function (statScore, proficiency, profBool = 0, perce
 //these functions are for calculating stats
 
 const calculateMods = function (strength, dexterity, constitution, intelligence, wisdom, charisma) {
-    calculateStatMod(strength);
-    calculateStatMod(dexterity);
-    calculateStatMod(constitution);
-    calculateStatMod(intelligence);
-    calculateStatMod(wisdom);
-    calculateStatMod(charisma);
+    const strmod = calculateStatMod(strength);
+    const dexmod = calculateStatMod(dexterity);
+    const conmod = calculateStatMod(constitution);
+    const intmod = calculateStatMod(intelligence);
+    const wismod = calculateStatMod(wisdom);
+    const chamod = calculateStatMod(charisma);
+    return [strmod, dexmod, conmod, intmod, wismod, chamod];
 }
 
-const calculateSavingThrows = function (strmod, dexmod, conmod, intmod, wismod, chamod) {
-    calculateSkillProf(strmod,prof,strSavThrowProf);
-    calculateSkillProf(dexmod,prof,dexSavThrowProf);
-    calculateSkillProf(conmod,prof,conSavThrowProf);
-    calculateSkillProf(intmod,prof,intSavThrowProf);
-    calculateSkillProf(wismod,prof,wisSavThrowProf);
-    calculateSkillProf(chamod,prof,chaSavThrowProf);
+const calculateSavingThrows = function (strmod, dexmod, conmod, intmod, wismod, chamod, prof, strSavThrowProf, dexSavThrowProf, conSavThrowProf, intSavThrowProf, wisSavThrowProf, chaSavThrowProf) {
+    const strSavThrow = calculateSkillProf(strmod,prof,strSavThrowProf);
+    const dexSavThrow = calculateSkillProf(dexmod,prof,dexSavThrowProf);
+    const conSavThrow = calculateSkillProf(conmod,prof,conSavThrowProf);
+    const intSavThrow = calculateSkillProf(intmod,prof,intSavThrowProf);
+    const wisSavThrow = calculateSkillProf(wismod,prof,wisSavThrowProf);
+    const chaSavThrow = calculateSkillProf(chamod,prof,chaSavThrowProf);
+    return [strSavThrow, dexSavThrow, conSavThrow, intSavThrow, wisSavThrow, chaSavThrow];
 }
 
-const calculateSkillProfs = function (trmod, dexmod, conmod, intmod, wismod, chamod) {
+const calculateSkillsProfs = function (strmod, dexmod, intmod, wismod, chamod, prof, acrobaticsProf, animalHandlingProf, arcanaProf, athleticsProf, deceptionProf, historyProf, insightProf, intimidationProf, investigationProf, medicineProf, natureProf, perceptionProf, performanceProf,persuasionProf, religionProf, sleightOfHandProf, stealthProf, survivalProf) {
+    const acrobatics = calculateSkillProf(dexmod,prof,acrobaticsProf);
+    const animalHandling = calculateSkillProf(wismod,prof,animalHandlingProf);
+    const arcana = calculateSkillProf(intmod,prof,arcanaProf);
+    const athletics = calculateSkillProf(strmod,prof,athleticsProf);
+    const deception = calculateSkillProf(chamod,prof,deceptionProf);
+    const history = calculateSkillProf(intmod,prof,historyProf);
+    const insight = calculateSkillProf(wismod,prof,insightProf);
+    const intimidation = calculateSkillProf(chamod,prof,intimidationProf);
+    const investigation = calculateSkillProf(intmod,prof,investigationProf);
+    const medicine = calculateSkillProf(wismod,prof,medicineProf);
+    const nature = calculateSkillProf(intmod,prof,natureProf);
+    const perception = calculateSkillProf(widmod,prof,perceptionProf);
+    const performance = calculateSkillProf(chamod,prof,performanceProf);
+    const persuasion = calculateSkillProf(chamod,prof,persuasionProf);
+    const religion = calculateSkillProf(intmod,prof,religionProf);
+    const sleightOfHand = calculateSkillProf(dexmod,prof,sleightOfHandProf);
+    const stealth = calculateSkillProf(dexmod,prof,stealthProf);
+    const survival = calculateSkillProf(wismod,prof,survivalProf);
 
+    const passivePerception = calculateSkillProf(wismod,prof,perceptionProf,10);
 }
 
 // This function updates the calculated stats on the webpage
