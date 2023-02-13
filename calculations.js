@@ -77,7 +77,7 @@ const calculateSkillsProfs = function (strmod, dexmod, intmod, wismod, chamod, p
     const investigation = calculateSkillProf(intmod,prof,investigationProf);
     const medicine = calculateSkillProf(wismod,prof,medicineProf);
     const nature = calculateSkillProf(intmod,prof,natureProf);
-    const perception = calculateSkillProf(widmod,prof,perceptionProf);
+    const perception = calculateSkillProf(wismod,prof,perceptionProf);
     const performance = calculateSkillProf(chamod,prof,performanceProf);
     const persuasion = calculateSkillProf(chamod,prof,persuasionProf);
     const religion = calculateSkillProf(intmod,prof,religionProf);
@@ -96,30 +96,34 @@ const updateStats = function () {
     // each of the calculating functions will be called; they will return arrays. Then the values of the arrays will be divided into the different values. These will be declared at the beginning, as they will be passed to the html page
 }
 
+
+
+
 // --- Testing ---
 
 //entered stats
 
-let strength = 14;
-let dexterity = 6;
-let constitution = 10;
-let wisdom = 15;
-let intelligence = 3;
-let charisma = 9;
-let level = 10;
+// let strength = 14;
+// let dexterity = 6;
+// let constitution = 10;
+// let wisdom = 15;
+// let intelligence = 3;
+// let charisma = 9;
+
+// let level = 10;
 
 // -- calculated stats --
 
-let prof = proficiency(level);
+// let prof = proficiency(level);
 
 //stat mods
 
-let strmod = 0;
-let dexmod = 0;
-let conmod = 0;
-let intmod = 0;
-let wismod = 0;
-let chamod = 0;
+// let strmod = 0;
+// let dexmod = 0;
+// let conmod = 0;
+// let intmod = 0;
+// let wismod = 0;
+// let chamod = 0;
 
 // console.log(`Strength Mod: ${strmod}`);
 // console.log(`Dexterity Mod: ${dexmod}`);
@@ -128,14 +132,14 @@ let chamod = 0;
 // console.log(`Wisdom Mod: ${wismod}`);
 // console.log(`Charisma Mod: ${chamod}`);
 
-let modArray = calculateMods(strength,dexterity,constitution,intelligence,wisdom,charisma);
+// let modArray = calculateMods(strength,dexterity,constitution,intelligence,wisdom,charisma);
 
-strmod = modArray[0];
-dexmod = modArray[1];
-conmod = modArray[2];
-intmod = modArray[3];
-wismod = modArray[4];
-chamod = modArray[5];
+// strmod = modArray[0];
+// dexmod = modArray[1];
+// conmod = modArray[2];
+// intmod = modArray[3];
+// wismod = modArray[4];
+// chamod = modArray[5];
 
 // console.log(`Strength Mod: ${strmod}`);
 // console.log(`Dexterity Mod: ${dexmod}`);
@@ -146,12 +150,12 @@ chamod = modArray[5];
 
 // Saving Throws
 
-let strSavThrow = 0;
-let dexSavThrow = 0;
-let conSavThrow = 0;
-let intSavThrow = 0;
-let wisSavThrow = 0;
-let chaSavThrow = 0;
+// let strSavThrow = 0;
+// let dexSavThrow = 0;
+// let conSavThrow = 0;
+// let intSavThrow = 0;
+// let wisSavThrow = 0;
+// let chaSavThrow = 0;
 
 // console.log(`Strength Saving Throw: ${strSavThrow}`);
 // console.log(`Dexterity Saving Throw: ${dexSavThrow}`);
@@ -160,14 +164,14 @@ let chaSavThrow = 0;
 // console.log(`Wisdom Saving Throw: ${wisSavThrow}`);
 // console.log(`Charisma Saving Throw: ${chaSavThrow}`);
 
-let savThrowArray = calculateSavingThrows(strmod,dexmod,conmod,intmod,wismod,chamod, prof, 1, 0, 0, 1, 1, 1);
+// let savThrowArray = calculateSavingThrows(strmod,dexmod,conmod,intmod,wismod,chamod, prof, 1, 0, 0, 1, 1, 1);
 
-strSavThrow = savThrowArray[0];
-dexSavThrow = savThrowArray[1];
-conSavThrow = savThrowArray[2];
-intSavThrow = savThrowArray[3];
-wisSavThrow = savThrowArray[4];
-chaSavThrow = savThrowArray[5];
+// strSavThrow = savThrowArray[0];
+// dexSavThrow = savThrowArray[1];
+// conSavThrow = savThrowArray[2];
+// intSavThrow = savThrowArray[3];
+// wisSavThrow = savThrowArray[4];
+// chaSavThrow = savThrowArray[5];
 
 // console.log(`Strength Saving Throw: ${strSavThrow}`);
 // console.log(`Dexterity Saving Throw: ${dexSavThrow}`);
@@ -178,27 +182,74 @@ chaSavThrow = savThrowArray[5];
 
 // Skill Proficiencies
 
-let acrobatics = 0;
-let animalHandling = 0;
-let arcana = 0;
-let athletics = 0;
-let deception = 0;
-let history = 0;
-let insight = 0;
-let intimidation = 0;
-let investigation = 0;
-let medicine = 0;
-let nature = 0;
-let perception = 0;
-let performance = 0;
-let persuasion = 0;
-let religion = 0;
-let sleightOfHand = 0;
-let stealth = 0;
-let survival = 0;
+// let acrobatics = 0;
+// let animalHandling = 0;
+// let arcana = 0;
+// let athletics = 0;
+// let deception = 0;
+// let history = 0;
+// let insight = 0;
+// let intimidation = 0;
+// let investigation = 0;
+// let medicine = 0;
+// let nature = 0;
+// let perception = 0;
+// let performance = 0;
+// let persuasion = 0;
+// let religion = 0;
+// let sleightOfHand = 0;
+// let stealth = 0;
+// let survival = 0;
 
-console.log(modArray);
-console.log(savThrowArray);
+// let passivePerception = 10;
+
+// let skillProfArray = calculateSkillsProfs(strmod, dexmod, intmod, wismod, chamod, prof, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0);
+
+// acrobatics = skillProfArray[0];
+// animalHandling = skillProfArray[1];
+// arcana = skillProfArray[2];
+// athletics = skillProfArray[3];
+// deception = skillProfArray[4];
+// history = skillProfArray[5];
+// insight = skillProfArray[6];
+// intimidation = skillProfArray[7];
+// investigation = skillProfArray[8];
+// medicine = skillProfArray[9];
+// nature = skillProfArray[10];
+// perception = skillProfArray[11];
+// performance = skillProfArray[12];
+// persuasion = skillProfArray[13];
+// religion = skillProfArray[14];
+// sleightOfHand = skillProfArray[15];
+// stealth = skillProfArray[16];
+// survival = skillProfArray[17];
+
+// passivePerception = skillProfArray[18];
+
+// console.log(`Acrobatics bonus: ${acrobatics}`);
+// console.log(`Animal Handling bonus: ${animalHandling}`);
+// console.log(`Arcana bonus: ${arcana}`);
+// console.log(`Athletics bonus: ${athletics}`);
+// console.log(`Deception bonus: ${deception}`);
+// console.log(`History bonus: ${history}`);
+// console.log(`Insight bonus: ${insight}`);
+// console.log(`Intimidation bonus: ${intimidation}`);
+// console.log(`Investigation bonus: ${investigation}`);
+// console.log(`Medicine bonus: ${medicine}`);
+// console.log(`Nature bonus: ${nature}`);
+// console.log(`Perception bonus: ${perception}`);
+// console.log(`Performance bonus: ${performance}`);
+// console.log(`Persuasion bonus: ${persuasion}`);
+// console.log(`Religion bonus: ${religion}`);
+// console.log(`Sleight of Hand bonus: ${sleightOfHand}`);
+// console.log(`Stealth bonus: ${stealth}`);
+// console.log(`Survival bonus: ${survival}`);
+
+// console.log(`Passive Perception: ${passivePerception}`);
+
+// console.log(modArray);
+// console.log(savThrowArray);
+// console.log(skillProfArray);
 
 // Testing small functions
 
