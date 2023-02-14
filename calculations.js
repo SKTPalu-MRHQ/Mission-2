@@ -217,6 +217,15 @@ const updateStats = function () {
     for (let i = 0; i < skillProfsArray.length; i++) {
         skillProfs[skillProfsArray[i]] = skillArray[i];
     }
+
+    document.getElementById("prof").innerHTML = modsProf["proficiency"];
+    document.getElementById("strmod").innerHTML = modsProf["str"];
+    document.getElementById("dexmod").innerHTML = modsProf["dex"];
+    document.getElementById("conmod").innerHTML = modsProf["con"];
+    document.getElementById("intmod").innerHTML = modsProf["int"];
+    document.getElementById("wismod").innerHTML = modsProf["wis"];
+    document.getElementById("chamod").innerHTML = modsProf["cha"];
+
     document.getElementById("strSavThrow").innerHTML = savingThrows["str"];
     document.getElementById("dexSavThrow").innerHTML = savingThrows["dex"];
     document.getElementById("conSavThrow").innerHTML = savingThrows["con"];
