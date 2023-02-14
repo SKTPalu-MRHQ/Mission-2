@@ -10,8 +10,26 @@ const statScoreslevel = {
     charisma: 10
 };
 
-const savingThrowsProf = {
-    proficiency:0, 
+const modsProf = {
+    proficiency: 2,
+    str: 0,
+    dex: 0,
+    con: 0,
+    int: 0,
+    wis: 0,
+    cha: 0
+};
+
+const savingThrows = {
+    str: 0,
+    dex: 0,
+    con: 0,
+    int: 0,
+    wis: 0,
+    cha: 0
+};
+
+const savingThrowsBool = {
     str: 0,
     dex: 0,
     con: 0,
@@ -38,7 +56,29 @@ const skillProfs = {
     religion: 0,
     sleightOfHand: 0,
     stealth: 0,
-    survival: 0
+    survival: 0,
+    passivePerception: 10
+};
+
+const skillProfsBool = {
+    acrobaticsProf: 0,
+    animalHandlingProf: 0,
+    arcanaProf: 0,
+    athleticsProf: 0,
+    deceptionProf: 0,
+    historyProf: 0,
+    insightProf: 0,
+    intimidationProf: 0,
+    investigationProf: 0,
+    medicineProf: 0,
+    natureProf: 0,
+    perceptionProf: 0,
+    performanceProf: 0,
+    persuasionProf: 0,
+    religionProf: 0,
+    sleightOfHandProf: 0,
+    stealthProf: 0,
+    survivalProf: 0,
 };
 
 // This function calculates the Stat Modifier for the 6 basic stats
@@ -46,9 +86,8 @@ const calculateStatMod = function (statScore) {
     return Math.floor((statScore-10)/2);
 }
 
-
 // This function returns the proficiency bonus
-const proficiency = function (level) {
+const calculateProficiency = function (level) {
     if (level < 5) {
         return 2;
     } else if (level < 9) {
@@ -61,7 +100,6 @@ const proficiency = function (level) {
         return 6;
     }
 }
-
 
 // This function calculates skill proficiency score
 // switch cases:
@@ -136,7 +174,8 @@ const calculateSkillsProfs = function (strmod, dexmod, intmod, wismod, chamod, p
 
 const updateStats = function () {
     // each of the calculating functions will be called; they will return arrays. Then the values of the arrays will be divided into the different values. These will be declared at the beginning, as they will be passed to the html page
-
+    modsArray = calculateMods(statScoreslevel[strength], statScoreslevel[dexterity], statScoreslevel[constitution], statScoreslevel[intelligence], statScoreslevel[wisdom], statScoreslevel[charisma]);
+    modsProf[proficiency] = calculateProficiency(statScoreslevel[level]);
 
 }
 
