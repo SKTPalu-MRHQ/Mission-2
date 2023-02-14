@@ -36,12 +36,12 @@ const savingThrows = {
 const savingThrowsArray = Object.keys(savingThrows);
 
 const savingThrowsBool = {
-    str: 0,
-    dex: 0,
-    con: 0,
-    int: 0,
-    wis: 0,
-    cha: 0
+    strSavThrowProf: false,
+    dexSavThrowProf: false,
+    conSavThrowProf: false,
+    intSavThrowProf: false,
+    wisSavThrowProf: false,
+    chaSavThrowProf: false
 };
 
 const savingThrowsBoolArray = Object.keys(savingThrowsBool);
@@ -71,24 +71,24 @@ const skillProfs = {
 const skillProfsArray = Object.keys(skillProfs);
 
 const skillProfsBool = {
-    acrobaticsProf: 0,
-    animalHandlingProf: 0,
-    arcanaProf: 0,
-    athleticsProf: 0,
-    deceptionProf: 0,
-    historyProf: 0,
-    insightProf: 0,
-    intimidationProf: 0,
-    investigationProf: 0,
-    medicineProf: 0,
-    natureProf: 0,
-    perceptionProf: 0,
-    performanceProf: 0,
-    persuasionProf: 0,
-    religionProf: 0,
-    sleightOfHandProf: 0,
-    stealthProf: 0,
-    survivalProf: 0,
+    acrobaticsProf: false,
+    animalHandlingProf: false,
+    arcanaProf: false,
+    athleticsProf: false,
+    deceptionProf: false,
+    historyProf: false,
+    insightProf: false,
+    intimidationProf: false,
+    investigationProf: false,
+    medicineProf: false,
+    natureProf: false,
+    perceptionProf: false,
+    performanceProf: false,
+    persuasionProf: false,
+    religionProf: false,
+    sleightOfHandProf: false,
+    stealthProf: false,
+    survivalProf: false,
 };
 
 const skillProfsBoolArray = Object.keys(skillProfsBool);
@@ -122,8 +122,12 @@ const calculateProficiency = function (level) {
 // profBool is either 1 or 0
 
 
-const calculateSkillProf = function (statScore, proficiency, profBool = 0, perception = 0) {
-    switch (perception + profBool) {
+const calculateSkillProf = function (statScore, proficiency, profBool, perception = 0) {
+    let profInt = 0
+    if (profBool == true) {
+        profInt = 1;
+    }
+    switch (perception + profInt) {
         case 0:
             return statScore;
         case 1:
@@ -185,12 +189,26 @@ const calculateSkillsProfs = function (strmod, dexmod, intmod, wismod, chamod, p
 // This function updates the calculated stats on the webpage
 
 const updateStats = function () {
-    //the code below accepts the new values from the html page
+
+    //the loops below accepts the new values from the html page
+
+    for (let i = 0; i < statScoreslevelArray.length; i++) {
+        statScoreslevel[statScoreslevelArray[i]] = document.getElementById(statScoreslevelArray[i]).value;
+    }
+
+    for (let i = 0; i < savingThrowsBoolArray.length; i++) {
+        savingThrowsBool[savingThrowsBoolArray[i]] = document.getElementById(savingThrowsBoolArray[i]).checked;
+    }
+
+    for (let i = 0; i < skillProfsBoolArray.length; i++) {
+        skillProfsBool[skillProfsBoolArray[i]] = document.getElementById(skillProfsBoolArray[i]).checked;
+    }
+
 
     // The functions below will calculate the new values
-    modsArray = calculateMods(statScoreslevel["strength"], statScoreslevel["dexterity"], statScoreslevel["constitution"], statScoreslevel["intelligence"], statScoreslevel["wisdom"], statScoreslevel["charisma"]);
+    const modsArray = calculateMods(statScoreslevel["strength"], statScoreslevel["dexterity"], statScoreslevel["constitution"], statScoreslevel["intelligence"], statScoreslevel["wisdom"], statScoreslevel["charisma"]);
     modsProf["proficiency"] = calculateProficiency(statScoreslevel["level"]);
-    savThrowArray = calculateSavingThrows(modsArray[0], modsArray[1], modsArray[2], modsArray[3], modsArray[4], modsArray[5], modsProf["proficiency"], savingThrowsBool["str"], savingThrowsBool["dex"], savingThrowsBool["con"], savingThrowsBool["int"], savingThrowsBool["wis"], savingThrowsBool["cha"]);
+    const savThrowArray = calculateSavingThrows(modsArray[0], modsArray[1], modsArray[2], modsArray[3], modsArray[4], modsArray[5], modsProf["proficiency"], savingThrowsBool["strSavThrowProf"], savingThrowsBool["dexSavThrowProf"], savingThrowsBool["conSavThrowProf"], savingThrowsBool["intSavThrowProf"], savingThrowsBool["wisSavThrowProf"], savingThrowsBool["chaSavThrowProf"]);
     for (let i = 1; i < modsProfArray.length; i++) {
         modsProf[modsProfArray[i]] = modsArray[i-1];
         savingThrows[savingThrowsArray[i-1]] = savThrowArray[i-1];
@@ -297,9 +315,9 @@ const updateStats = function () {
 // console.log(skillProfs);
 // console.log(skillProfsBool);
 
-// -- Testing aggregate functions --
+// // -- Testing aggregate functions --
 
-//entered stats
+// // entered stats
 
 // let strength = 14;
 // let dexterity = 6;
@@ -314,7 +332,7 @@ const updateStats = function () {
 
 // let prof = proficiency(level);
 
-//stat mods
+// // stat mods
 
 // let strmod = 0;
 // let dexmod = 0;
@@ -346,7 +364,7 @@ const updateStats = function () {
 // console.log(`Wisdom Mod: ${wismod}`);
 // console.log(`Charisma Mod: ${chamod}`);
 
-// Saving Throws
+// // Saving Throws
 
 // let strSavThrow = 0;
 // let dexSavThrow = 0;
@@ -378,7 +396,7 @@ const updateStats = function () {
 // console.log(`Wisdom Saving Throw: ${wisSavThrow}`);
 // console.log(`Charisma Saving Throw: ${chaSavThrow}`);
 
-// Skill Proficiencies
+// // Skill Proficiencies
 
 // let acrobatics = 0;
 // let animalHandling = 0;
@@ -449,7 +467,7 @@ const updateStats = function () {
 // console.log(savThrowArray);
 // console.log(skillProfArray);
 
-// Testing small functions
+// // Testing small functions
 
 // const strmod = calculateStatMod(strength);
 // const dexmod = calculateStatMod(dexterity);
@@ -458,33 +476,33 @@ const updateStats = function () {
 // const wismod = calculateStatMod(wisdom);
 // const chamod = calculateStatMod(charisma);
 
-// // console.log(calculateStatMod(strength));
-// // console.log(calculateStatMod(dexterity));
-// // console.log(calculateStatMod(constitution));
-// // console.log(calculateStatMod(wisdom));
-// // console.log(calculateStatMod(intelligence));
-// // console.log(calculateStatMod(charisma));
+// console.log(calculateStatMod(strength));
+// console.log(calculateStatMod(dexterity));
+// console.log(calculateStatMod(constitution));
+// console.log(calculateStatMod(wisdom));
+// console.log(calculateStatMod(intelligence));
+// console.log(calculateStatMod(charisma));
 
-// // console.log(proficiency(1));
-// // console.log(proficiency(2));
-// // console.log(proficiency(3));
-// // console.log(proficiency(4));
-// // console.log(proficiency(5));
-// // console.log(proficiency(6));
-// // console.log(proficiency(7));
-// // console.log(proficiency(8));
-// // console.log(proficiency(9));
-// // console.log(proficiency(10));
-// // console.log(proficiency(11));
-// // console.log(proficiency(12));
-// // console.log(proficiency(13));
-// // console.log(proficiency(14));
-// // console.log(proficiency(15));
-// // console.log(proficiency(16));
-// // console.log(proficiency(17));
-// // console.log(proficiency(18));
-// // console.log(proficiency(19));
-// // console.log(proficiency(20));
+// console.log(proficiency(1));
+// console.log(proficiency(2));
+// console.log(proficiency(3));
+// console.log(proficiency(4));
+// console.log(proficiency(5));
+// console.log(proficiency(6));
+// console.log(proficiency(7));
+// console.log(proficiency(8));
+// console.log(proficiency(9));
+// console.log(proficiency(10));
+// console.log(proficiency(11));
+// console.log(proficiency(12));
+// console.log(proficiency(13));
+// console.log(proficiency(14));
+// console.log(proficiency(15));
+// console.log(proficiency(16));
+// console.log(proficiency(17));
+// console.log(proficiency(18));
+// console.log(proficiency(19));
+// console.log(proficiency(20));
 
 // console.log(calculateSkillProf(strmod,prof));
 // console.log(calculateSkillProf(dexmod,prof,1));
