@@ -1,3 +1,45 @@
+// Below are the Objects that will hold our values
+
+const statScoreslevel = {
+    level: 1,
+    strength: 10,
+    dexterity: 10,
+    constitution: 10,
+    intelligence: 10,
+    wisdom: 10,
+    charisma: 10
+};
+
+const savingThrowsProf = {
+    proficiency:0, 
+    str: 0,
+    dex: 0,
+    con: 0,
+    int: 0,
+    wis: 0,
+    cha: 0
+}
+
+const skillProfs = {
+    acrobatics: 0,
+    animalHandling: 0,
+    arcana: 0,
+    athletics: 0,
+    deception: 0,
+    history: 0,
+    insight: 0,
+    intimidation: 0,
+    investigation: 0,
+    medicine: 0,
+    nature: 0,
+    perception: 0,
+    performance: 0,
+    persuasion: 0,
+    religion: 0,
+    sleightOfHand: 0,
+    stealth: 0,
+    survival: 0
+};
 
 // This function calculates the Stat Modifier for the 6 basic stats
 const calculateStatMod = function (statScore) {
