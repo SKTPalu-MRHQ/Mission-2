@@ -120,6 +120,7 @@ const calculateProficiency = function (level) {
 // 10 = not proficient, passive perception
 // default (> 10) = proficient, passive perception
 // profBool is either 1 or 0
+//This is from before; profBool is Boolean type; profInt is the Boolean as an int, where 0 = false and 1 = true
 
 
 const calculateSkillProf = function (statScore, proficiency, profBool, perception = 0) {
