@@ -185,27 +185,59 @@ const calculateSkillsProfs = function (strmod, dexmod, intmod, wismod, chamod, p
 // This function updates the calculated stats on the webpage
 
 const updateStats = function () {
-    // each of the calculating functions will be called; they will return arrays. Then the values of the arrays will be divided into the different values. These will be declared at the beginning, as they will be passed to the html page
+    //the code below accepts the new values from the html page
 
-    // The below will calculate the modifiers needed to calculate everything else, and put them in the modifier object
+    // The functions below will calculate the new values
     modsArray = calculateMods(statScoreslevel["strength"], statScoreslevel["dexterity"], statScoreslevel["constitution"], statScoreslevel["intelligence"], statScoreslevel["wisdom"], statScoreslevel["charisma"]);
     modsProf["proficiency"] = calculateProficiency(statScoreslevel["level"]);
+    savThrowArray = calculateSavingThrows(modsArray[0], modsArray[1], modsArray[2], modsArray[3], modsArray[4], modsArray[5], modsProf["proficiency"], savingThrowsBool["str"], savingThrowsBool["dex"], savingThrowsBool["con"], savingThrowsBool["int"], savingThrowsBool["wis"], savingThrowsBool["cha"]);
     for (let i = 1; i < modsProfArray.length; i++) {
         modsProf[modsProfArray[i]] = modsArray[i-1];
-        console.log(modsProfArray[i]);
-        console.log(modsProf[modsProfArray[i]]);
+        savingThrows[savingThrowsArray[i-1]] = savThrowArray[i-1];
     }
+    skillArray = calculateSkillsProfs (modsProf["str"], modsProf["dex"], modsProf["int"], modsProf["wis"], modsProf["cha"], modsProf["proficiency"], skillProfsBool["acrobaticsProf"], skillProfsBool["animalHandlingProf"], skillProfsBool["arcanaProf"], skillProfsBool["athleticsProf"], skillProfsBool["deceptionProf"], skillProfsBool["historyProf"], skillProfsBool["insightProf"], skillProfsBool["intimidationProf"], skillProfsBool["investigationProf"], skillProfsBool["medicineProf"], skillProfsBool["natureProf"], skillProfsBool["perceptionProf"], skillProfsBool["performanceProf"], skillProfsBool["persuasionProf"], skillProfsBool["religionProf"], skillProfsBool["sleightOfHandProf"], skillProfsBool["stealthProf"], skillProfsBool["survivalProf"]);
+    for (let i = 0; i < skillProfsArray.length; i++) {
+        skillProfs[skillProfsArray[i]] = skillArray[i];
+    }
+    document.getElementById("strSavThrow").innerHTML = savingThrows["str"];
+    document.getElementById("dexSavThrow").innerHTML = savingThrows["dex"];
+    document.getElementById("conSavThrow").innerHTML = savingThrows["con"];
+    document.getElementById("intSavThrow").innerHTML = savingThrows["int"];
+    document.getElementById("wisSavThrow").innerHTML = savingThrows["wis"];
+    document.getElementById("chaSavThrow").innerHTML = savingThrows["cha"];
+
+    document.getElementById("acrobatics").innerHTML = skillProfs["acrobatics"];
+    document.getElementById("animalHandling").innerHTML = skillProfs["animalHandling"];
+    document.getElementById("arcana").innerHTML = skillProfs["arcana"];
+    document.getElementById("athletics").innerHTML = skillProfs["athletics"];
+    document.getElementById("deception").innerHTML = skillProfs["deception"];
+    document.getElementById("history").innerHTML = skillProfs["history"];
+    document.getElementById("insight").innerHTML = skillProfs["insight"];
+    document.getElementById("intimidation").innerHTML = skillProfs["intimidation"];
+    document.getElementById("investigation").innerHTML = skillProfs["investigation"];
+    document.getElementById("medicine").innerHTML = skillProfs["medicine"];
+    document.getElementById("nature").innerHTML = skillProfs["nature"];
+    document.getElementById("perception").innerHTML = skillProfs["perception"];
+    document.getElementById("performance").innerHTML = skillProfs["performance"];
+    document.getElementById("persuasion").innerHTML = skillProfs["persuasion"];
+    document.getElementById("religion").innerHTML = skillProfs["religion"];
+    document.getElementById("sleightOfHand").innerHTML = skillProfs["sleightOfHand"];
+    document.getElementById("stealth").innerHTML = skillProfs["stealth"];
+    document.getElementById("survival").innerHTML = skillProfs["survival"];
+    document.getElementById("passivePerception").innerHTML = skillProfs["passivePerception"];
 
 }
 
 // --- Testing ---
 
-console.log(statScoreslevel);
-console.log(modsProf);
-console.log(savingThrows);
-console.log(savingThrowsBool);
-console.log(skillProfs);
-console.log(skillProfsBool);
+
+
+// console.log(statScoreslevel);
+// console.log(modsProf);
+// console.log(savingThrows);
+// console.log(savingThrowsBool);
+// console.log(skillProfs);
+// console.log(skillProfsBool);
 
 // console.log(statScoreslevelArray);
 // console.log(modsProfArray);
@@ -214,17 +246,56 @@ console.log(skillProfsBool);
 // console.log(skillProfsArray);
 // console.log(skillProfsBoolArray);
 
-statScoreslevel["level"] = 10;
+// statScoreslevel["level"] = 10;
 
-statScoreslevel["strength"] = 14;
-statScoreslevel["dexterity"] = 6;
-statScoreslevel["constitution"] = 10;
-statScoreslevel["intelligence"] = 15;
-statScoreslevel["wisdom"] = 3;
-statScoreslevel["charisma"] = 9;
+// statScoreslevel["strength"] = 14;
+// statScoreslevel["dexterity"] = 6;
+// statScoreslevel["constitution"] = 10;
+// statScoreslevel["intelligence"] = 15;
+// statScoreslevel["wisdom"] = 3;
+// statScoreslevel["charisma"] = 9;
 
-console.log(statScoreslevel);
-updateStats();
+// statScoreslevel["strength"] = 10;
+// statScoreslevel["dexterity"] = 10;
+// statScoreslevel["constitution"] = 10;
+// statScoreslevel["intelligence"] = 10;
+// statScoreslevel["wisdom"] = 10;
+// statScoreslevel["charisma"] = 10;
+
+// savingThrowsBool["str"] = 1;
+// savingThrowsBool["dex"] = 0;
+// savingThrowsBool["con"] = 0;
+// savingThrowsBool["int"] = 1;
+// savingThrowsBool["wis"] = 1;
+// savingThrowsBool["cha"] = 1;
+
+// skillProfsBool["acrobaticsProf"] = 0;
+// skillProfsBool["animalHandlingProf"] = 1;
+// skillProfsBool["arcanaProf"] = 0;
+// skillProfsBool["athleticsProf"] = 1;
+// skillProfsBool["deceptionProf"] = 0;
+// skillProfsBool["historyProf"] = 1;
+// skillProfsBool["insightProf"] = 0;
+// skillProfsBool["intimidationProf"] = 1;
+// skillProfsBool["investigationProf"] = 0;
+// skillProfsBool["medicineProf"] = 1;
+// skillProfsBool["natureProf"] = 0;
+// skillProfsBool["perceptionProf"] = 1;
+// skillProfsBool["performanceProf"] = 0;
+// skillProfsBool["persuasionProf"] = 1;
+// skillProfsBool["religionProf"] = 0;
+// skillProfsBool["sleightOfHandProf"] = 1;
+// skillProfsBool["stealthProf"] = 0;
+// skillProfsBool["survivalProf"] = 1;
+
+// updateStats();
+
+// console.log(statScoreslevel);
+// console.log(modsProf);
+// console.log(savingThrows);
+// console.log(savingThrowsBool);
+// console.log(skillProfs);
+// console.log(skillProfsBool);
 
 // -- Testing aggregate functions --
 
