@@ -10,6 +10,8 @@ const statScoreslevel = {
     charisma: 10
 };
 
+const statScoreslevelArray = Object.keys(statScoreslevel);
+
 const modsProf = {
     proficiency: 2,
     str: 0,
@@ -20,6 +22,8 @@ const modsProf = {
     cha: 0
 };
 
+const modsProfArray = Object.keys(modsProf);
+
 const savingThrows = {
     str: 0,
     dex: 0,
@@ -29,6 +33,8 @@ const savingThrows = {
     cha: 0
 };
 
+const savingThrowsArray = Object.keys(savingThrows);
+
 const savingThrowsBool = {
     str: 0,
     dex: 0,
@@ -37,6 +43,8 @@ const savingThrowsBool = {
     wis: 0,
     cha: 0
 };
+
+const savingThrowsBoolArray = Object.keys(savingThrowsBool);
 
 const skillProfs = {
     acrobatics: 0,
@@ -60,6 +68,8 @@ const skillProfs = {
     passivePerception: 10
 };
 
+const skillProfsArray = Object.keys(skillProfs);
+
 const skillProfsBool = {
     acrobaticsProf: 0,
     animalHandlingProf: 0,
@@ -80,6 +90,8 @@ const skillProfsBool = {
     stealthProf: 0,
     survivalProf: 0,
 };
+
+const skillProfsBoolArray = Object.keys(skillProfsBool);
 
 // This function calculates the Stat Modifier for the 6 basic stats
 const calculateStatMod = function (statScore) {
@@ -174,15 +186,45 @@ const calculateSkillsProfs = function (strmod, dexmod, intmod, wismod, chamod, p
 
 const updateStats = function () {
     // each of the calculating functions will be called; they will return arrays. Then the values of the arrays will be divided into the different values. These will be declared at the beginning, as they will be passed to the html page
-    modsArray = calculateMods(statScoreslevel[strength], statScoreslevel[dexterity], statScoreslevel[constitution], statScoreslevel[intelligence], statScoreslevel[wisdom], statScoreslevel[charisma]);
-    modsProf[proficiency] = calculateProficiency(statScoreslevel[level]);
+
+    // The below will calculate the modifiers needed to calculate everything else, and put them in the modifier object
+    modsArray = calculateMods(statScoreslevel["strength"], statScoreslevel["dexterity"], statScoreslevel["constitution"], statScoreslevel["intelligence"], statScoreslevel["wisdom"], statScoreslevel["charisma"]);
+    modsProf["proficiency"] = calculateProficiency(statScoreslevel["level"]);
+    for (let i = 1; i < modsProfArray.length; i++) {
+        modsProf[modsProfArray[i]] = modsArray[i-1];
+        console.log(modsProfArray[i]);
+        console.log(modsProf[modsProfArray[i]]);
+    }
 
 }
 
-
-
-
 // --- Testing ---
+
+console.log(statScoreslevel);
+console.log(modsProf);
+console.log(savingThrows);
+console.log(savingThrowsBool);
+console.log(skillProfs);
+console.log(skillProfsBool);
+
+// console.log(statScoreslevelArray);
+// console.log(modsProfArray);
+// console.log(savingThrowsArray);
+// console.log(savingThrowsBoolArray);
+// console.log(skillProfsArray);
+// console.log(skillProfsBoolArray);
+
+statScoreslevel["level"] = 10;
+
+statScoreslevel["strength"] = 14;
+statScoreslevel["dexterity"] = 6;
+statScoreslevel["constitution"] = 10;
+statScoreslevel["intelligence"] = 15;
+statScoreslevel["wisdom"] = 3;
+statScoreslevel["charisma"] = 9;
+
+console.log(statScoreslevel);
+updateStats();
 
 // -- Testing aggregate functions --
 
