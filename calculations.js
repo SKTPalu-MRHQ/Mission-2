@@ -18,7 +18,7 @@ const savingThrowsProf = {
     int: 0,
     wis: 0,
     cha: 0
-}
+};
 
 const skillProfs = {
     acrobatics: 0,
@@ -136,12 +136,16 @@ const calculateSkillsProfs = function (strmod, dexmod, intmod, wismod, chamod, p
 
 const updateStats = function () {
     // each of the calculating functions will be called; they will return arrays. Then the values of the arrays will be divided into the different values. These will be declared at the beginning, as they will be passed to the html page
+
+
 }
 
 
 
 
 // --- Testing ---
+
+// -- Testing aggregate functions --
 
 //entered stats
 
